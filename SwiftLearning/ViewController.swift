@@ -22,8 +22,7 @@ class ViewController: UIViewController {
         var tapRecog = UITapGestureRecognizer(target: self, action: Selector("createShape:"))
         drawingView.userInteractionEnabled = true
         drawingView.addGestureRecognizer(tapRecog)
-        
-        // Do any additional setup after loading the view, typically from a nib.
+        self.view.userInteractionEnabled = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,9 +37,9 @@ class ViewController: UIViewController {
     
     func drawPolygon(point _point: CGPoint) {
         
-        let p1 = PolygonView(sides: 3, radious: initialRadious)
-        p1.frame.origin = CGPoint(x: _point.x+initialRadious, y: _point.y+initialRadious) //Calculate origin so the touch is the center of the polygon
-        p1.backgroundColor = UIColor.cyanColor()
+        let p1 = PolygonView(sides: 3, radious: initialRadious, color: UIColor.redColor())
+        p1.frame.origin = CGPoint(x: _point.x-initialRadious, y: _point.y-initialRadious) //Calculate origin so the touch is the center of the polygon
+
         drawingView.addSubview(p1)
     }
     

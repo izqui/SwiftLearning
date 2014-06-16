@@ -11,28 +11,42 @@ import QuartzCore
 
 class PolygonView: UIView {
     
+    let _shapeLayer = CAShapeLayer()
+    var _radious = 0.0
+    var _color = UIColor()
+    var _sides = 3
+    
     enum PolygonOrientation {
         
         case Regular, Inverted
     }
     
-    init(sides n: Int, radious r: Double) {
+    init(sides n: Int, radious r: Double, color c: UIColor) {
+        
+        _sides = n
+        _radious = r
+        _color = c
         
         var frame = CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: 2.0*r, height: 2.0*r))
         super.init(frame: frame)
         
-        self.drawPolygon(sides: n, radious: r)
+        self.layer.mask = _shapeLayer // Masking the UIView so that you can see the polygon
+        mask(bezierPath: polygonPath(sides: n, radious: r))
         
-        var tapRecognizer = UITapGestureRecognizer(target: self, action: Selector("tap"))
+        var tapRecognizer = UITapGestureRecognizer(target: self, action: Selector("tap:"))
         tapRecognizer.numberOfTapsRequired = 1
         tapRecognizer.numberOfTouchesRequired = 1
-        
         self.addGestureRecognizer(tapRecognizer)
+        
+        var swipeRecognizer = UISwipeGestureRecognizer(target: self, action: Selector("swipe:"))
+        self.addGestureRecognizer(swipeRecognizer)
+        
         self.userInteractionEnabled = true
         
+        self.backgroundColor = _color
     }
     
-    func drawPolygon(sides n: Int, radious r: Double){
+    func polygonPath(sides n: Int, radious r: Double) -> UIBezierPath {
     
         var points: CGPoint[] = CGPoint[](count: n, repeatedValue:CGPoint())
         points[0] = CGPoint(x: r, y:0)
@@ -72,16 +86,23 @@ class PolygonView: UIView {
         }
         bp.closePath()
         
-        var shape = CAShapeLayer(layer: self.layer)
-        shape.path = bp.CGPath
-        self.layer.mask = shape
+        return bp
+       
+    }
+    
+    func mask(bezierPath path: UIBezierPath) {
         
-        
+        _shapeLayer.path = path.CGPath
     }
     
     func tap(sender: UITapGestureRecognizer){
         
-        println("You just tapped a shape")
+        mask(bezierPath: polygonPath(sides: ++_sides, radious: _radious))
+    }
+    
+    func swipe(sender: UISwipeGestureRecognizer){
+        
+        _color = UIColor.whiteColor()
     }
 }
 

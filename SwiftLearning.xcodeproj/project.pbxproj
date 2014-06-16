@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E117FA0D194F48BB002DDD56 /* RandomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E117FA0C194F48BB002DDD56 /* RandomColor.swift */; };
 		E1E8B452194DFB6000FCA9C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E8B451194DFB6000FCA9C9 /* AppDelegate.swift */; };
 		E1E8B454194DFB6000FCA9C9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E8B453194DFB6000FCA9C9 /* ViewController.swift */; };
 		E1E8B457194DFB6000FCA9C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1E8B455194DFB6000FCA9C9 /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E117FA0C194F48BB002DDD56 /* RandomColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomColor.swift; sourceTree = "<group>"; };
 		E1CDBEB1194E1CA200233D00 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		E1E8B44C194DFB6000FCA9C9 /* SwiftLearning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftLearning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1E8B450194DFB6000FCA9C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 				E1E8B451194DFB6000FCA9C9 /* AppDelegate.swift */,
 				E1E8B453194DFB6000FCA9C9 /* ViewController.swift */,
 				E1E8B46E194E013500FCA9C9 /* PolygonView.swift */,
+				E117FA0C194F48BB002DDD56 /* RandomColor.swift */,
 				E1E8B455194DFB6000FCA9C9 /* Main.storyboard */,
 				E1CDBEB1194E1CA200233D00 /* MyPlayground.playground */,
 				E1E8B458194DFB6100FCA9C9 /* Images.xcassets */,
@@ -213,6 +216,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E117FA0D194F48BB002DDD56 /* RandomColor.swift in Sources */,
 				E1E8B46F194E013500FCA9C9 /* PolygonView.swift in Sources */,
 				E1E8B454194DFB6000FCA9C9 /* ViewController.swift in Sources */,
 				E1E8B452194DFB6000FCA9C9 /* AppDelegate.swift in Sources */,
