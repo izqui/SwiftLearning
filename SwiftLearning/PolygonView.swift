@@ -15,16 +15,25 @@ class PolygonView: UIView {
         
         case Regular, Inverted
     }
-    init(sides n: Int, radious r: Double, color c: UIColor, orientation o: PolygonOrientation) {
+    
+    init(sides n: Int, radious r: Double) {
         
         var frame = CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: 2.0*r, height: 2.0*r))
         super.init(frame: frame)
         
-        if (o == .Inverted){
-    
-            println("orientation is Inverted")
-        }
+        self.drawPolygon(sides: n, radious: r)
         
+        var tapRecognizer = UITapGestureRecognizer(target: self, action: Selector("tap"))
+        tapRecognizer.numberOfTapsRequired = 1
+        tapRecognizer.numberOfTouchesRequired = 1
+        
+        self.addGestureRecognizer(tapRecognizer)
+        self.userInteractionEnabled = true
+        
+    }
+    
+    func drawPolygon(sides n: Int, radious r: Double){
+    
         var points: CGPoint[] = CGPoint[](count: n, repeatedValue:CGPoint())
         points[0] = CGPoint(x: r, y:0)
         
@@ -62,6 +71,17 @@ class PolygonView: UIView {
             bp.addLineToPoint(points[i])
         }
         bp.closePath()
+        
+        var shape = CAShapeLayer(layer: self.layer)
+        shape.path = bp.CGPath
+        self.layer.mask = shape
+        
+        
+    }
+    
+    func tap(sender: UITapGestureRecognizer){
+        
+        println("You just tapped a shape")
     }
 }
 

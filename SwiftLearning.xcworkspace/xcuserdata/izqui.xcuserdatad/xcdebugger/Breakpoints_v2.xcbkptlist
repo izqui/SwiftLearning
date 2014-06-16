@@ -2,4 +2,52 @@
 <Bucket
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SwiftLearning/PolygonView.swift"
+            timestampString = "424624186.465394"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "drawPolygon(sides:radious:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SwiftLearning.PolygonView.drawPolygon (SwiftLearning.PolygonView)(sides : Swift.Int, radious : Swift.Double) -&gt; ()"
+                  moduleName = "SwiftLearning"
+                  urlString = "file:///Users/izqui/Desktop/SwiftLearning/SwiftLearning/PolygonView.swift"
+                  timestampString = "424624212.61773"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "80"
+                  endingLineNumber = "80"
+                  offsetFromSymbolStart = "2732">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SwiftLearning.PolygonView.drawPolygon (SwiftLearning.PolygonView)(sides : Swift.Int, radious : Swift.Double) -&gt; ()"
+                  moduleName = "SwiftLearning"
+                  urlString = "file:///Users/izqui/Desktop/SwiftLearning/SwiftLearning/PolygonView.swift"
+                  timestampString = "424624212.61804"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "80"
+                  endingLineNumber = "80"
+                  offsetFromSymbolStart = "2756">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

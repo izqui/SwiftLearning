@@ -50,4 +50,4 @@ func polygon(sides n: Int!, radious r: Double!, color c: UIColor!) -> UIView {
     return view
 }
 
-polygon(sides: 11, radious: 100, color: UIColor.redColor())
+polygon(sides: 20, radious: 100, color: UIColor.redColor())

@@ -80,9 +80,9 @@
 			children = (
 				E1E8B451194DFB6000FCA9C9 /* AppDelegate.swift */,
 				E1E8B453194DFB6000FCA9C9 /* ViewController.swift */,
-				E1CDBEB1194E1CA200233D00 /* MyPlayground.playground */,
 				E1E8B46E194E013500FCA9C9 /* PolygonView.swift */,
 				E1E8B455194DFB6000FCA9C9 /* Main.storyboard */,
+				E1CDBEB1194E1CA200233D00 /* MyPlayground.playground */,
 				E1E8B458194DFB6100FCA9C9 /* Images.xcassets */,
 				E1E8B44F194DFB6000FCA9C9 /* Supporting Files */,
 			);

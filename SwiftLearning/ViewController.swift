@@ -11,14 +11,17 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet var drawingView: UIView
+    let initialRadious = 50.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "Hola"
-        drawingView.backgroundColor = UIColor.greenColor()
+        drawingView.backgroundColor = UIColor.blackColor()
         
-        drawPolygons()
+        var tapRecog = UITapGestureRecognizer(target: self, action: Selector("createShape:"))
+        drawingView.userInteractionEnabled = true
+        drawingView.addGestureRecognizer(tapRecog)
         
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -28,11 +31,17 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func drawPolygons() {
+    func createShape(sender: UITapGestureRecognizer){
         
-        let p1 = PolygonView(sides: 5, radious: 100, color: UIColor.redColor(), orientation: .Regular)
-        self.view.addSubview(p1)
+        drawPolygon(point: sender.locationInView(drawingView))
+    }
+    
+    func drawPolygon(point _point: CGPoint) {
         
+        let p1 = PolygonView(sides: 3, radious: initialRadious)
+        p1.frame.origin = CGPoint(x: _point.x+initialRadious, y: _point.y+initialRadious) //Calculate origin so the touch is the center of the polygon
+        p1.backgroundColor = UIColor.cyanColor()
+        drawingView.addSubview(p1)
     }
     
 }
