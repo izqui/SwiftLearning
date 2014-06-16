@@ -11,7 +11,7 @@ import UIKit
 extension UIColor {
     
     class func randomColor() -> UIColor! {
-        
+       
         var colors = [UIColor.redColor(), UIColor.cyanColor(), UIColor.whiteColor(), UIColor.greenColor(), UIColor.blueColor(), UIColor.grayColor(), UIColor.yellowColor(), UIColor.orangeColor(), UIColor.magentaColor()]
         
         var r = Int(rand()) % Int(colors.count)

@@ -16,6 +16,9 @@ class PolygonView: UIView {
     var _color = UIColor()
     var _sides = 3
     
+    var _scale = 1.0
+    var _rotation = 0.0
+    
     enum PolygonOrientation {
         
         case Regular, Inverted
@@ -36,6 +39,8 @@ class PolygonView: UIView {
         self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: Selector("tap:")))
         self.addGestureRecognizer(UISwipeGestureRecognizer(target: self, action: Selector("swipe:")))
         self.addGestureRecognizer(UIPinchGestureRecognizer(target: self, action: Selector("pinch:")))
+        self.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action:Selector("move:")))
+        self.addGestureRecognizer(UIRotationGestureRecognizer(target: self, action:Selector("rotate:")))
         
         self.userInteractionEnabled = true
         
@@ -104,7 +109,61 @@ class PolygonView: UIView {
     
     func pinch(sender: UIPinchGestureRecognizer){
         
-        self.transform = CGAffineTransformScale(CGAffineTransformIdentity, sender.scale, sender.scale)
+        self.transform = transform(scale: sender.scale*_scale, angle: _rotation)
+        
+        if sender.state == .Ended {
+            _scale *= sender.scale
+        }
+    }
+    
+    func move(sender: UILongPressGestureRecognizer){
+        
+        switch sender.state {
+            
+        case .Began:
+            
+            //So that user realizes it is moving it
+            UIView.animateWithDuration(0.2){
+                
+                self.transform = self.transform(scale: self._scale*1.1, angle: self._rotation)
+                self.alpha = 0.8
+                self.center = sender.locationInView(self.superview)
+                
+                //Taking it to ythe top of the view
+                self.removeFromSuperview()
+                self.superview.addSubview(self)
+            }
+            
+        case .Changed:
+            
+            //Move it
+            self.center = sender.locationInView(self.superview)
+            
+        case .Ended, .Failed, .Cancelled:
+            
+            //Back to the original state
+            UIView.animateWithDuration(0.2){
+                
+                self.transform = self.transform(scale: self._scale, angle: self._rotation)
+                self.alpha = 1
+            }
+        default:
+            break
+        }
+    }
+    
+    func rotate(sender: UIRotationGestureRecognizer){
+        
+        self.transform = transform(scale: self._scale, angle: self._rotation+sender.rotation)
+
+        
+        if sender.state == .Ended { _rotation += sender.rotation }
+    }
+    
+    func transform(scale s: Double, angle a: Double) -> CGAffineTransform {
+        
+        //Apply both transforms at once
+        return CGAffineTransformConcat(CGAffineTransformScale(CGAffineTransformIdentity, s, s), CGAffineTransformRotate(CGAffineTransformIdentity, a))
     }
 }
 
