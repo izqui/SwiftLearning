@@ -33,13 +33,9 @@ class PolygonView: UIView {
         self.layer.mask = _shapeLayer // Masking the UIView so that you can see the polygon
         mask(bezierPath: polygonPath(sides: n, radious: r))
         
-        var tapRecognizer = UITapGestureRecognizer(target: self, action: Selector("tap:"))
-        tapRecognizer.numberOfTapsRequired = 1
-        tapRecognizer.numberOfTouchesRequired = 1
-        self.addGestureRecognizer(tapRecognizer)
-        
-        var swipeRecognizer = UISwipeGestureRecognizer(target: self, action: Selector("swipe:"))
-        self.addGestureRecognizer(swipeRecognizer)
+        self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: Selector("tap:")))
+        self.addGestureRecognizer(UISwipeGestureRecognizer(target: self, action: Selector("swipe:")))
+        self.addGestureRecognizer(UIPinchGestureRecognizer(target: self, action: Selector("pinch:")))
         
         self.userInteractionEnabled = true
         
@@ -102,7 +98,13 @@ class PolygonView: UIView {
     
     func swipe(sender: UISwipeGestureRecognizer){
         
-        _color = UIColor.whiteColor()
+        _color = UIColor.randomColor()
+        self.backgroundColor = _color
+    }
+    
+    func pinch(sender: UIPinchGestureRecognizer){
+        
+        self.transform = CGAffineTransformScale(CGAffineTransformIdentity, sender.scale, sender.scale)
     }
 }
 
