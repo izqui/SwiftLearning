@@ -129,9 +129,8 @@ class PolygonView: UIView {
                 self.alpha = 0.8
                 self.center = sender.locationInView(self.superview)
                 
-                //Taking it to ythe top of the view
-                self.removeFromSuperview()
-                self.superview.addSubview(self)
+                //Taking it to the top of the view
+                self.superview.bringSubviewToFront(self)
             }
             
         case .Changed:

@@ -16,6 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 2" id="BE6-0y-Gpu"/>
                 </viewController>
@@ -37,7 +38,22 @@
                         <subviews>
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xmC-6T-oa9">
                                 <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kbm-zy-ZJs">
+                                        <rect key="frame" x="380" y="34" width="80" height="30"/>
+                                        <state key="normal" title="Physics bro">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="enableGravity" destination="Bd0-ID-9O9" eventType="touchUpInside" id="IfJ-rb-30Q"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="kbm-zy-ZJs" secondAttribute="trailing" constant="20" id="Gd5-lS-KoR"/>
+                                    <constraint firstItem="kbm-zy-ZJs" firstAttribute="top" secondItem="xmC-6T-oa9" secondAttribute="top" constant="40" id="Wv3-Po-u10"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -45,6 +61,7 @@
                             <constraint firstItem="xmC-6T-oa9" firstAttribute="height" secondItem="9WK-DZ-Gki" secondAttribute="height" constant="-44" id="Qj9-fH-tLP"/>
                             <constraint firstItem="xmC-6T-oa9" firstAttribute="width" secondItem="9WK-DZ-Gki" secondAttribute="width" id="Uli-Cn-cCY"/>
                         </constraints>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="QMX-Ew-ONl"/>
                     <connections>
