@@ -37,7 +37,7 @@ class ViewController: UIViewController {
     
     func drawPolygon(point _point: CGPoint) {
         
-        let p1 = PolygonView(sides: 3, radious: initialRadious, color: UIColor.redColor())
+        let p1 = PolygonView(sides: 3, radious: initialRadious, color: UIColor.randomColor())
         p1.frame.origin = CGPoint(x: _point.x-initialRadious, y: _point.y-initialRadious) //Calculate origin so the touch is the center of the polygon
 
         drawingView.addSubview(p1)

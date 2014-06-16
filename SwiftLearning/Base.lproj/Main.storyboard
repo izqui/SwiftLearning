@@ -16,7 +16,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 2" id="BE6-0y-Gpu"/>
                 </viewController>
@@ -46,7 +45,6 @@
                             <constraint firstItem="xmC-6T-oa9" firstAttribute="height" secondItem="9WK-DZ-Gki" secondAttribute="height" constant="-44" id="Qj9-fH-tLP"/>
                             <constraint firstItem="xmC-6T-oa9" firstAttribute="width" secondItem="9WK-DZ-Gki" secondAttribute="width" id="Uli-Cn-cCY"/>
                         </constraints>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="QMX-Ew-ONl"/>
                     <connections>
