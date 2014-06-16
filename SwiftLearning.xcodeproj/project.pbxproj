@@ -12,6 +12,7 @@
 		E1E8B457194DFB6000FCA9C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1E8B455194DFB6000FCA9C9 /* Main.storyboard */; };
 		E1E8B459194DFB6100FCA9C9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1E8B458194DFB6100FCA9C9 /* Images.xcassets */; };
 		E1E8B465194DFB6100FCA9C9 /* SwiftLearningTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E8B464194DFB6100FCA9C9 /* SwiftLearningTests.swift */; };
+		E1E8B46F194E013500FCA9C9 /* PolygonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E8B46E194E013500FCA9C9 /* PolygonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,6 +26,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E1CDBEB1194E1CA200233D00 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		E1E8B44C194DFB6000FCA9C9 /* SwiftLearning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftLearning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1E8B450194DFB6000FCA9C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E1E8B451194DFB6000FCA9C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -34,6 +36,7 @@
 		E1E8B45E194DFB6100FCA9C9 /* SwiftLearningTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftLearningTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1E8B463194DFB6100FCA9C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E1E8B464194DFB6100FCA9C9 /* SwiftLearningTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftLearningTests.swift; sourceTree = "<group>"; };
+		E1E8B46E194E013500FCA9C9 /* PolygonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolygonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +80,8 @@
 			children = (
 				E1E8B451194DFB6000FCA9C9 /* AppDelegate.swift */,
 				E1E8B453194DFB6000FCA9C9 /* ViewController.swift */,
+				E1CDBEB1194E1CA200233D00 /* MyPlayground.playground */,
+				E1E8B46E194E013500FCA9C9 /* PolygonView.swift */,
 				E1E8B455194DFB6000FCA9C9 /* Main.storyboard */,
 				E1E8B458194DFB6100FCA9C9 /* Images.xcassets */,
 				E1E8B44F194DFB6000FCA9C9 /* Supporting Files */,
@@ -208,6 +213,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1E8B46F194E013500FCA9C9 /* PolygonView.swift in Sources */,
 				E1E8B454194DFB6000FCA9C9 /* ViewController.swift in Sources */,
 				E1E8B452194DFB6000FCA9C9 /* AppDelegate.swift in Sources */,
 			);
@@ -399,6 +405,7 @@
 				E1E8B46A194DFB6100FCA9C9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E1E8B46B194DFB6100FCA9C9 /* Build configuration list for PBXNativeTarget "SwiftLearningTests" */ = {
 			isa = XCConfigurationList;
@@ -407,6 +414,7 @@
 				E1E8B46D194DFB6100FCA9C9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
