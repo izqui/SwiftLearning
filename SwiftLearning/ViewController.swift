@@ -47,20 +47,25 @@ class ViewController: UIViewController {
         
         let p = PolygonView(sides: 3, radious: initialRadious, color: UIColor.randomColor())
         p.frame.origin = CGPoint(x: _point.x-initialRadious, y: _point.y-initialRadious) //Calculate origin so the touch is the center of the polygon
-
+        
         _drawingView.addSubview(p)
         _polygons += p
+        p.transformClosure = {
+            self._animator!.updateItemUsingCurrentState(p)
+        }
     }
     
-    @IBAction func enableGravity() {
+    @IBAction func physics(sender: AnyObject) {
         
         self._animator = UIDynamicAnimator(referenceView: _drawingView)
-        var viewsArray = _polygons
-        viewsArray += _drawingView
-        _animator!.addBehavior(UICollisionBehavior(items: viewsArray))
+
         
-        var gravity: UIGravityBehavior = UIGravityBehavior(items: _polygons)
-        gravity.gravityDirection = CGVectorMake(0,-1)
+        var collisions = UICollisionBehavior(items: _polygons)
+        collisions.translatesReferenceBoundsIntoBoundary = true
+        _animator!.addBehavior(collisions)
+        
+        var gravity = UIGravityBehavior(items: _polygons)
+        gravity.gravityDirection = CGVectorMake(0,1)
         _animator!.addBehavior(gravity)
     
     }

@@ -16,6 +16,8 @@ class PolygonView: UIView {
     var _color = UIColor()
     var _sides = 3
     
+    var transformClosure: () -> () = {() -> () in}
+    
     var _scale = 1.0
     var _rotation = 0.0
     
@@ -110,6 +112,7 @@ class PolygonView: UIView {
     func pinch(sender: UIPinchGestureRecognizer){
         
         self.transform = transform(scale: sender.scale*_scale, angle: _rotation)
+        transformClosure()
         
         if sender.state == .Ended {
             _scale *= sender.scale
@@ -129,6 +132,7 @@ class PolygonView: UIView {
                 self.alpha = 0.8
                 self.center = sender.locationInView(self.superview)
                 
+                self.transformClosure()
                 //Taking it to the top of the view
                 self.superview.bringSubviewToFront(self)
             }
@@ -145,6 +149,7 @@ class PolygonView: UIView {
                 
                 self.transform = self.transform(scale: self._scale, angle: self._rotation)
                 self.alpha = 1
+                self.transformClosure()
             }
         default:
             break
@@ -154,7 +159,7 @@ class PolygonView: UIView {
     func rotate(sender: UIRotationGestureRecognizer){
         
         self.transform = transform(scale: self._scale, angle: self._rotation+sender.rotation)
-
+        self.transformClosure()
         
         if sender.state == .Ended { _rotation += sender.rotation }
     }

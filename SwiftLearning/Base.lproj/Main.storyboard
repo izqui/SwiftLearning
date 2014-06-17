@@ -45,7 +45,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="enableGravity" destination="Bd0-ID-9O9" eventType="touchUpInside" id="IfJ-rb-30Q"/>
+                                            <action selector="physics:" destination="Bd0-ID-9O9" eventType="touchUpInside" id="KJJ-7I-iNa"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -65,8 +65,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="QMX-Ew-ONl"/>
                     <connections>
-                        <outlet property="drawingView" destination="xmC-6T-oa9" id="H5O-hh-sey"/>
-                        <outlet property="view" destination="xmC-6T-oa9" id="9QC-1s-ZgU"/>
+                        <outlet property="_drawingView" destination="xmC-6T-oa9" id="avp-iS-zfi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XMy-Kb-F3l" userLabel="First Responder" sceneMemberID="firstResponder"/>
