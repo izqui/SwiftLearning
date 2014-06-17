@@ -141,6 +141,7 @@ class PolygonView: UIView {
             
             //Move it
             self.center = sender.locationInView(self.superview)
+            transformClosure()
             
         case .Ended, .Failed, .Cancelled:
             

@@ -11,10 +11,15 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet var _drawingView: UIView
+
     var _scrollView = UIScrollView()
     var _polygons = UIView[]()
     var _animator: UIDynamicAnimator?
-    let initialRadious = 50.0
+    var _physicsEnabled = false
+    var _collisions: UICollisionBehavior?
+    var _gravity: UIGravityBehavior?
+    
+    let _initialRadious = 50.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +34,7 @@ class ViewController: UIViewController {
         _drawingView.addGestureRecognizer(tapRecog)
         self.view.userInteractionEnabled = true
         
+        setupPhysics()
         //scrollView = UIScrollView(frame: self.view.bounds)
         
     }
@@ -45,29 +51,56 @@ class ViewController: UIViewController {
     
     func drawPolygon(point _point: CGPoint) {
         
-        let p = PolygonView(sides: 3, radious: initialRadious, color: UIColor.randomColor())
-        p.frame.origin = CGPoint(x: _point.x-initialRadious, y: _point.y-initialRadious) //Calculate origin so the touch is the center of the polygon
+        let p = PolygonView(sides: 3, radious: _initialRadious, color: UIColor.randomColor())
+        p.frame.origin = CGPoint(x: _point.x-_initialRadious, y: _point.y-_initialRadious) //Calculate origin so the touch is the center of the polygon
         
         _drawingView.addSubview(p)
         _polygons += p
+        
+        updatePhysics()
+        phy()
+        
         p.transformClosure = {
             self._animator!.updateItemUsingCurrentState(p)
         }
     }
     
-    @IBAction func physics(sender: AnyObject) {
+    func setupPhysics() {
         
-        self._animator = UIDynamicAnimator(referenceView: _drawingView)
+         self._animator = UIDynamicAnimator(referenceView: _drawingView)
+        
+         _collisions = UICollisionBehavior(items: _polygons)
+         _collisions!.translatesReferenceBoundsIntoBoundary = true
+        
+         _gravity = UIGravityBehavior(items: _polygons)
+         _gravity!.gravityDirection = CGVectorMake(0,1)
 
-        
-        var collisions = UICollisionBehavior(items: _polygons)
-        collisions.translatesReferenceBoundsIntoBoundary = true
-        _animator!.addBehavior(collisions)
-        
-        var gravity = UIGravityBehavior(items: _polygons)
-        gravity.gravityDirection = CGVectorMake(0,1)
-        _animator!.addBehavior(gravity)
+    }
     
+    func updatePhysics() {
+        
+        _collisions = UICollisionBehavior(items: _polygons)
+        _collisions!.translatesReferenceBoundsIntoBoundary = true
+        _gravity = UIGravityBehavior(items: _polygons)
+    }
+    
+    func phy() {
+        
+        if _physicsEnabled {
+            
+            _animator!.addBehavior(_collisions!)
+            _animator!.addBehavior(_gravity!)
+        } else {
+            _animator!.removeAllBehaviors()
+        }
+
+    }
+    @IBAction func physics(sender: UIButton) {
+        
+        phy()
+        sender.setTitle("Physics \(String(!_physicsEnabled))", forState: .Normal)
+        _physicsEnabled = !_physicsEnabled
+        
     }
     
 }
